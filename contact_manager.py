@@ -69,11 +69,7 @@ def list_contacts():
 def find_contact(email):
     with Session(engine) as session:
 
-        contact = (
-            session.query(Contact)
-            .filter_by(email=email)
-            .first()
-        )
+        contact = (session.query(Contact).filter_by(email=email).first())
 
         if contact:
             print(f"Found: {contact}")
@@ -86,11 +82,7 @@ def find_contact(email):
 def update_phone(email, new_phone):
     with Session(engine) as session:
 
-        contact = (
-            session.query(Contact)
-            .filter_by(email=email)
-            .first()
-        )
+        contact = (session.query(Contact).filter_by(email=email).first())
 
         if not contact:
             print("Contact not found.")
@@ -109,11 +101,7 @@ def update_phone(email, new_phone):
 def toggle_favorite(email):
     with Session(engine) as session:
 
-        contact = (
-            session.query(Contact)
-            .filter_by(email=email)
-            .first()
-        )
+        contact = (session.query(Contact).filter_by(email=email).first())
 
         if not contact:
             print("Contact not found.")
@@ -132,11 +120,7 @@ def toggle_favorite(email):
 def delete_contact(email):
     with Session(engine) as session:
 
-        contact = (
-            session.query(Contact)
-            .filter_by(email=email)
-            .first()
-        )
+        contact = (session.query(Contact).filter_by(email=email).first())
 
         if not contact:
             print("Contact not found.")
